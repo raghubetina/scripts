@@ -7,6 +7,10 @@ class Rating < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :vignette,
+             :through => :response,
+             :source => :vignette
+
   # Validations
 
 end
