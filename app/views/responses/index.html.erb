@@ -18,8 +18,20 @@
       <% @responses.each do |response| %>
       <tr>
         <td><%= response.body %></td>
-        <td><%= response.user.email %></td>
-        <td><%= response.vignette.body %></td>
+        <td>
+          <% if response.user.present? %>
+            <a href="/users/<%= response.user.id %>">
+              <%= response.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if response.vignette.present? %>
+            <a href="/vignettes/<%= response.vignette.id %>">
+              <%= response.vignette.body %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/responses/<%= response.id %>" class="btn btn-primary">Show</a>
           

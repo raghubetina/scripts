@@ -18,10 +18,22 @@
 
       <% @ratings.each do |rating| %>
       <tr>
-        <td><%= rating.response.body %></td>
+        <td>
+          <% if rating.response.present? %>
+            <a href="/responses/<%= rating.response.id %>">
+              <%= rating.response.body %>
+            </a>
+          <% end %>
+        </td>
         <td><%= rating.stars %></td>
         <td><%= rating.comment %></td>
-        <td><%= rating.user.email %></td>
+        <td>
+          <% if rating.user.present? %>
+            <a href="/users/<%= rating.user.id %>">
+              <%= rating.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/ratings/<%= rating.id %>" class="btn btn-primary">Show</a>
           <a href="/ratings/<%= rating.id %>/edit" class="btn btn-warning">Edit</a>

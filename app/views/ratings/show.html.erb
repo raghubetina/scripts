@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Response</dt>
-      <dd><%= @rating.response_id %></dd>
+      <dd>
+        <% if @rating.response.present? %>
+          <a href="/responses/<%= @rating.response_id %>">
+            <%= @rating.response.body %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Stars</dt>
       <dd><%= @rating.stars %></dd>
@@ -15,7 +21,13 @@
       <dd><%= @rating.comment %></dd>
 
       <dt>User</dt>
-      <dd><%= @rating.user_id %></dd>
+      <dd>
+        <% if @rating.user.present? %>
+          <a href="/users/<%= @rating.user_id %>">
+            <%= @rating.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
