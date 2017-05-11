@@ -18,7 +18,7 @@
 
       <% @ratings.each do |rating| %>
       <tr>
-        <td><%= rating.response_id %></td>
+        <td><%= rating.response.body %></td>
         <td><%= rating.stars %></td>
         <td><%= rating.comment %></td>
         <td><%= rating.user_id %></td>
